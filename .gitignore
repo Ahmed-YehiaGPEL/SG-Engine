@@ -9,6 +9,11 @@
 *.userosscache
 *.sln.docstates
 
+# Solution and Project files |  We Use Premake Instead
+*.sln
+*.vcxproj
+*.vcxproj.filters
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
