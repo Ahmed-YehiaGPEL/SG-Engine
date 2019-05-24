@@ -1,4 +1,4 @@
-#include <SGEngine.hpp>
+#include <SGEngine.h>
 #include <cstdio>
 
 class Playground : public SGEngine::Application

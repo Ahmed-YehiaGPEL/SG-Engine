@@ -3,6 +3,7 @@
 #include <cstdio>
 
 #include "SGEngine/Application.h"
+#include "SGEngine/Logger.h"
 
 //--Entry
-#include "SGEngine/EntryPoint.hpp"
+#include "SGEngine/EntryPoint.h"
