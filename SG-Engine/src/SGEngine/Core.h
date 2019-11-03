@@ -8,3 +8,4 @@
 #else
 #error Only Supporting Windows
 #endif
+#define BIT(I) 1 << I
