@@ -45,6 +45,8 @@ namespace SGEngine
 				WindowData mWindowData;
 
 				static bool mGLFWInitialized;
+
+				void SetupEventCallbacks();
 			};
 		}
 	}
