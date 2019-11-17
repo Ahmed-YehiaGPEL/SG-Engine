@@ -29,6 +29,14 @@ namespace SGEngine
 		EVENT_CLASS_CATEGORY(EventCategoryInput | EventCategoryKeyboard);
 
 		int GetPressCount() const { return mPressCount; }
+
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "Key Pressed: " << GetKeyCode() << ", Repeat: " << mPressCount;
+			return ss.str();
+		}
+
 	private:
 		int mPressCount;
 	};
@@ -42,6 +50,14 @@ namespace SGEngine
 		
 		EVENT_CLASS_TYPE(KeyPressed);
 		EVENT_CLASS_CATEGORY(EventCategoryInput | EventCategoryKeyboard);
+
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "Key Released: " << GetKeyCode();
+			return ss.str();
+		}
+
 	};
 
 }

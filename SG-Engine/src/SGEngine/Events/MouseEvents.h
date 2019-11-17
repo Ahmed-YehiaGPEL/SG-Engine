@@ -22,6 +22,13 @@ namespace SGEngine
 
 		EVENT_CLASS_TYPE(MouseButtonPressed);
 		EVENT_CLASS_CATEGORY(EventCategoryInput | EventCategoryMouse | EventCategoryMouseButton);
+
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "Mouse Button Pressed: " << GetMouseButtonCode();
+			return ss.str();
+		}
 	};
 
 	class MouseButtonReleasedEvent :public MouseButtonEvent {
@@ -32,6 +39,13 @@ namespace SGEngine
 
 		EVENT_CLASS_TYPE(MouseButtonReleased);
 		EVENT_CLASS_CATEGORY(EventCategoryInput | EventCategoryMouse | EventCategoryMouseButton);
+
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "Mouse Button Released: " << GetMouseButtonCode();
+			return ss.str();
+		}
 	};
 
 	class MouseScrolledEvent : public Event
@@ -47,6 +61,13 @@ namespace SGEngine
 
 		EVENT_CLASS_TYPE(MouseScrolled);
 		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
+
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "Mouse Scrolled: " << mDeltaX<< "," << mDeltaY;
+			return ss.str();
+		};
 	private:
 		float mDeltaX;
 		float mDeltaY;
@@ -65,6 +86,14 @@ namespace SGEngine
 
 		EVENT_CLASS_TYPE(MouseMoved);
 		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
+		
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "Mouse Moved: " << mPositionX << "," << mPositionY;
+			return ss.str();
+		};
+
 	private:
 		float mPositionX;
 		float mPositionY;
