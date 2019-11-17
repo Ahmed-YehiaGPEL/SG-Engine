@@ -1,0 +1,3 @@
+[submodule "SG-Engine/thirdparty/GLFW"]
+	path = SG-Engine/thirdparty/GLFW
+	url = https://github.com/Ahmed-YehiaGPEL/glfw

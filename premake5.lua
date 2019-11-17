@@ -3,6 +3,10 @@ workspace "SG-Engine"
 	configurations {"Debug", "Release", "Distribute"}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+IncludeDir = {}
+IncludeDir["GLFW"] = "SG-Engine/thirdparty/GLFW/include"
+
+include "SG-Engine/thirdparty/GLFW"
 
 project "Playground"
 	location "Playground"
@@ -19,6 +23,7 @@ project "Playground"
 		"SG-Engine/thirdparty/spdlog/spdlog-include",
 		"SG-Engine/src",
 		"SG-Engine/src/SGEngine/"
+
 	}
 	links "SG-Engine"
 
@@ -59,9 +64,15 @@ project "SG-Engine"
 	includedirs{
 		"%{prj.name}/thirdparty/spdlog/spdlog-include",
 		"%{prj.name}/src/",
-		"%{prj.name}/src/SGEngine/"
-
+		"%{prj.name}/src/SGEngine/",
+		"%{IncludeDir.GLFW}"
 	}
+
+	links{
+		"GLFW",
+		"opengl32.lib"
+	}
+
 	filter "system:windows"
 		cppdialect "C++17"
 		staticruntime "On"
