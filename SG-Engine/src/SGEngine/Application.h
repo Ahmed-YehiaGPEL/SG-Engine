@@ -1,5 +1,6 @@
 #pragma once
 #include "Core.h"
+#include "Window.h"
 
 namespace SGEngine
 {
@@ -9,6 +10,8 @@ namespace SGEngine
 		Application();
 		virtual ~Application();
 		void Run() const;
+	private:
+		std::unique_ptr<Window> mWindow;
 	};
 
 	Application* CreateApplication();
