@@ -14,7 +14,7 @@ project "SG-Engine"
 	language "C++"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-
+	
 	pchheader "sgepch.h"
 	pchsource "SG-Engine/src/sgepch.cpp"
 
@@ -46,12 +46,15 @@ project "SG-Engine"
 	filter "configurations:Debug"
 		defines "SGE_DEBUG"
 		symbols "On"
+		buildoptions "/MDd"
 	filter "configurations:Release"
 		defines "SGE_RELEASE"
 		optimize "On"
+		buildoptions "/MD"
 	filter "configurations:Distribute"
 		defines "SGE_DISTRIBUTE"
 		optimize "On"
+		buildoptions "/MD"
 
 project "Playground"
 	location "Playground"
@@ -81,13 +84,16 @@ project "Playground"
 	filter "configurations:Debug"
 		defines "SGE_DEBUG"
 		symbols "On"
+		buildoptions "/MDd"
 
 	filter "configurations:Release"
 		defines "SGE_RELEASE"
 		optimize "On"
+		buildoptions "/MD"
 
 	filter "configurations:Distribute"
 		defines "SGE_DISTRIBUTE"
 		optimize "On"
-
+		buildoptions "/MD"
+	
 	dependson "SG-Engine"
