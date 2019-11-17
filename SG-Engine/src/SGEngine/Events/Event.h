@@ -36,7 +36,7 @@ namespace SGEngine
 		virtual const char* GetName() const = 0;
 		virtual  int GetCategoryFlags() const = 0;
 		virtual std::string ToString() const { return GetName(); }
-
+		bool IsHandled() const { return mHandled; }
 		bool IsInCategory(EventCategory category) const
 		{
 			return GetCategoryFlags() && category;
