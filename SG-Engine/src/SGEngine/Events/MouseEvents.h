@@ -52,7 +52,6 @@ namespace SGEngine
 		float mDeltaY;
 	};
 
-
 	class MouseMovedEvent : public Event
 	{
 	public:
@@ -70,5 +69,4 @@ namespace SGEngine
 		float mPositionX;
 		float mPositionY;
 	};
-
 }

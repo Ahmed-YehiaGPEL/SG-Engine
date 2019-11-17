@@ -1,3 +1,4 @@
+#include "sgepch.h"
 #include "Application.h"
 #include "Events/ApplicationEvents.h"
 #include "Logger.h"

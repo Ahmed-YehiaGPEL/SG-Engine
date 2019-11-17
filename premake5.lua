@@ -17,7 +17,8 @@ project "Playground"
 	}
 	includedirs{
 		"SG-Engine/thirdparty/spdlog/spdlog-include",
-		"SG-Engine/src"
+		"SG-Engine/src",
+		"SG-Engine/src/SGEngine/"
 	}
 	links "SG-Engine"
 
@@ -48,12 +49,18 @@ project "SG-Engine"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "sgepch.h"
+	pchsource "SG-Engine/src/sgepch.cpp"
+
 	files	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp"
 	}
 	includedirs{
-		"%{prj.name}/thirdparty/spdlog/spdlog-include"
+		"%{prj.name}/thirdparty/spdlog/spdlog-include",
+		"%{prj.name}/src/",
+		"%{prj.name}/src/SGEngine/"
+
 	}
 	filter "system:windows"
 		cppdialect "C++17"
