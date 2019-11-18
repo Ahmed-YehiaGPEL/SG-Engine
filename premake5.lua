@@ -5,8 +5,10 @@ workspace "SG-Engine"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "SG-Engine/thirdparty/GLFW/include"
+IncludeDir["Glad"] = "SG-Engine/thirdparty/Glad/include"
 
 include "SG-Engine/thirdparty/GLFW"
+include "SG-Engine/thirdparty/Glad"
 
 project "SG-Engine"
 	location "SG-Engine"
@@ -26,10 +28,12 @@ project "SG-Engine"
 		"%{prj.name}/thirdparty/spdlog/spdlog-include",
 		"%{prj.name}/src/",
 		"%{prj.name}/src/SGEngine/",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links{
+		"Glad",
 		"GLFW",
 		"opengl32.lib"
 	}
@@ -39,7 +43,7 @@ project "SG-Engine"
 		staticruntime "On"
 		systemversion "latest"
 
-		defines { "SGE_PLATFORM_WINDOWS","SGE_BUILD_DLL" }
+		defines { "SGE_PLATFORM_WINDOWS","SGE_BUILD_DLL", "GLFW_INCLUDE_NONE" }
 		postbuildcommands{
 			("{COPY} %{cfg.buildtarget.relpath} ../bin/" ..outputdir.. "/Playground")
 		}
