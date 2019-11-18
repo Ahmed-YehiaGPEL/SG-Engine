@@ -3,6 +3,7 @@
 #include "Events/ApplicationEvents.h"
 #include "Events/KeyEvents.h"
 #include "Events/MouseEvents.h"
+#include "glad/glad.h"
 
 namespace SGEngine
 {
@@ -75,7 +76,7 @@ namespace SGEngine
 				if (success)
 				{
 					mGLFWInitialized = true;
-					SGE_CORE_INFO("GLFW Initialized Succesfully!");
+					SGE_CORE_INFO("GLFW Initialized Successfully!");
 					glfwSetErrorCallback([](int errorCode, const char* description) {SGE_CORE_ERROR("[{0}] : {1}", errorCode, description); });
 				}
 				else
@@ -87,6 +88,15 @@ namespace SGEngine
 			mInstance = glfwCreateWindow(mWindowData.Width, mWindowData.Height, mWindowData.Title.c_str(), nullptr,
 			                             nullptr);
 			glfwMakeContextCurrent(mInstance);
+			int state = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+			if (state)
+			{
+				SGE_CORE_INFO("Glad Initialized Successfully!");
+			}
+			else
+			{
+				SGE_CORE_FATAL("Failed to initialize Glad!");
+			}
 			glfwSetWindowUserPointer(mInstance, &mWindowData);
 			SetVSync(true);
 
