@@ -6,9 +6,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "SG-Engine/thirdparty/GLFW/include"
 IncludeDir["Glad"] = "SG-Engine/thirdparty/Glad/include"
+IncludeDir["ImGui"] = "SG-Engine/thirdparty/imgui"
 
 include "SG-Engine/thirdparty/GLFW"
 include "SG-Engine/thirdparty/Glad"
+include "SG-Engine/thirdparty/imgui"
 
 project "SG-Engine"
 	location "SG-Engine"
@@ -29,12 +31,14 @@ project "SG-Engine"
 		"%{prj.name}/src/",
 		"%{prj.name}/src/SGEngine/",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links{
 		"Glad",
 		"GLFW",
+		"ImGui",
 		"opengl32.lib"
 	}
 
